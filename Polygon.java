@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
  * @date 2/5/2023
  * @author Matthew Hioe
  *
- * @description
+ * @description This will take the method the sides, length of the sides, and the name of the shape
  */
 public class Polygon { //make public for CS A
 
