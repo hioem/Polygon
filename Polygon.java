@@ -22,6 +22,7 @@ public class Polygon { //make public for CS A
         length = 1.0;
         shape = "triangle";
         perimeter = 3.0;
+        area = .433;
     }
 
     //overloaded constructor (with parameters)
@@ -39,8 +40,8 @@ public class Polygon { //make public for CS A
         if(s >= 3 && l>1.0) {
             sides = s;
             length = l;
-            perimeter = Math.round(l * s * 1000);
-            perimeter /= 1000;
+            getShapePerimeter();
+            getShapeArea();
         }
         else if(s<3 || l<1.0){
             System.out.println("Not a polygon");
@@ -78,6 +79,14 @@ public class Polygon { //make public for CS A
      */
     public String getShapeType(){
         return shape;
+    }
+    public void getShapePerimeter(){
+        perimeter = Math.round(length * sides * 1000);
+        perimeter /= 1000.0;
+    }
+    public void getShapeArea() {
+        area = (sides*(length*length))/(4.0*Math.tan((Math.PI/sides))*1000);
+        area /= 1000.0;
     }
 
 
@@ -119,9 +128,7 @@ public class Polygon { //make public for CS A
         DecimalFormat df = new DecimalFormat("#.###");
         return "There are " + sides +
                 " sides, each with a length of " + df.format(length) + ", meaning this shape is a " + shape + "!"+ "\n" +
-                "With a perimeter of "+ df.format(perimeter) + "!";
-
-
+                "With a perimeter of "+ df.format(perimeter) + " and the area of " + df.format(perimeter) + " !";
 
     }
 
