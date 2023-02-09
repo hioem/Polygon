@@ -40,8 +40,8 @@ public class Polygon { //make public for CS A
         if(s >= 3 && l>1.0) {
             sides = s;
             length = l;
-            getShapePerimeter();
-            getShapeArea();
+            calculatePerimeter();
+            calculateArea();
         }
         else if(s<3 || l<1.0){
             System.out.println("Not a polygon");
@@ -80,13 +80,15 @@ public class Polygon { //make public for CS A
     public String getShapeType(){
         return shape;
     }
-    public void getShapePerimeter(){
+    public double calculatePerimeter(){
         perimeter = Math.round(length * sides * 1000);
         perimeter /= 1000.0;
+        return perimeter;
     }
-    public void getShapeArea() {
+    public double calculateArea() {
         area = (sides*(length*length))/(4.0*Math.tan((Math.PI/sides))*1000);
         area /= 1000.0;
+        return area;
     }
 
 
