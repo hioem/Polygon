@@ -36,10 +36,11 @@ public class Polygon { //make public for CS A
     public Polygon(int s, double l, String shapes){
         sides = 3;
         length = 1.0;
-        if(s >= 3 && l>1.0){
+        if(s >= 3 && l>1.0) {
             sides = s;
             length = l;
-            perimeter = s*l;
+            perimeter = Math.round(l * s * 1000);
+            perimeter /= 1000;
         }
         else if(s<3 || l<1.0){
             System.out.println("Not a polygon");
