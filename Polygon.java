@@ -20,9 +20,9 @@ public class Polygon { //make public for CS A
     public Polygon(){
         sides = 3;
         length = 1.0;
-        shape = "triangle";
+        shape = "Triangle";
         perimeter = 3.0;
-        area = .433;
+        area = 0.433;
     }
 
     //overloaded constructor (with parameters)
@@ -42,13 +42,16 @@ public class Polygon { //make public for CS A
             length = l;
             calculatePerimeter();
             calculateArea();
+            shape = shapes;
         }
         else if(s<3 || l<1.0){
             System.out.println("Not a polygon");
-            System.exit(0);
+            shape = "Triangle";
+            calculateArea();
         }
-        else {}
-       shape = shapes;
+        else {
+        }
+
     }
 
     public Polygon(int sides){
@@ -75,6 +78,21 @@ public class Polygon { //make public for CS A
 
     /**
      *
+     * @return the area of the triangle
+     */
+    public double getArea() {
+        if(sides >= 3 && length>1.0) {
+            double area = Math.round((sides * (length * length)) / (4.0 * Math.tan((Math.PI / sides)))*1000);
+            area /= 1000.0;
+            return area;
+        }
+        else{}{
+            return area;
+        }
+
+    }
+    /**
+     *
      * @return the name of the shape
      */
     public String getShapeType(){
@@ -86,7 +104,7 @@ public class Polygon { //make public for CS A
         return perimeter;
     }
     public double calculateArea() {
-        area = (sides*(length*length))/(4.0*Math.tan((Math.PI/sides))*1000);
+        double area = Math.round((sides * (length * length)) / (4.0 * Math.tan((Math.PI / sides)))*1000);
         area /= 1000.0;
         return area;
     }
@@ -99,23 +117,31 @@ public class Polygon { //make public for CS A
      *
      * @param newSides desired sides
      */
-    public void setSides(int newSides){
-        sides = newSides;
+    public void setNumSides(int newSides){
+        if (newSides>=3) {
+            sides = newSides;
+        }
+        else{}
     }
     /**
      * Allows the user to change the lengths of each side in the Polygon.
      *
      * @param newLength desired length
      */
-    public void setLength(int newLength){
-        length = newLength;
+    public void setSideLength(double newLength){
+        if(newLength>=1.0) {
+            length = newLength;
+        }
+        else{
+
+        }
     }
     /**
      * Allows the user to change the name of the Polygon.
      *
      * @param newShape desired sides
      */
-    public void setShape(String newShape){
+    public void setShapeName(String newShape){
         shape = newShape;
     }
 
